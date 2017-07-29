@@ -1,0 +1,49 @@
+<!-- views/pages/urls_index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+        <main>
+            <div class="jumbotron">
+            <h3>List of MiniscURLs</h3>
+              <% for(var key in urls) { %>
+                <ul>
+                <div><%= `-------------------------------------------------`%></div>
+                <li><%= key + ': ' + urls[key].longURL %>
+                    <form action = "/urls/<%= key %>/delete" method="POST">
+                        <a href = "/urls/<%= key %>">Edit</a>
+                        <button type="submit"> Delete</button>
+                    </form>
+                </li>
+                <% } %>
+            <ul><div><%= `-------------------------------------------------`%></div></ul>
+
+
+        </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,47 @@
+<!-- views/pages/urls_show.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <% var lng = templateVars.longURL ;
+    var shrt = templateVars.shortURL;%>
+
+    <main>
+        <p>Original URL: <a href="<%= lng %>"><%= urlDatabase[req.params.id].longurl %></a></p>
+        <p>Shortened URL: <a href="<%= lng %>">www.miniscURL/<%= shrt.toString() %></a></p>
+        <p></p>
+        <% if (userId) { %>
+            <form action="/urls/user" style="padding-top:25px;">
+                <label for="backToYour">
+                    <input type="submit" id="backToYour" value="Your list" />
+                </label>
+            </form>
+        <% } %>
+            <form action="/" style="padding-top:14px;">
+                <label for="backToFull" >
+                    <input type="submit" id="backToFull" value="Full list" />
+                </label>
+            </form>
+            <form id="shrt" action="/urls/<%= shrt %>/update" method="POST" style="margin: 35px 0 14px 0;">
+                <label for="lng">Update this with a new link:
+                    <input id="lng" type="text" name="lng" style="width: 250px; margin: 0 11px 0 7px;"
+                    placeholder="<%= lng %>" action="/urls/<%= shrt %>/update">
+                    <button type="submit" value="Submit_button" submit button>Update URL</button>
+                </label>
+            </form>
+
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+
+</body>
+</html>

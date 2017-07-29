@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ../partials/head %>
+  </head>
+  <body class="container">
+    <header>
+        <% include ../partials/header %>
+    </header>
+    <form action="/urls" method="POST" style="margin:150px;">
+      <label for="shortURL">Enter a new URL to be shortened:</label>
+      <input id="shortURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
+      <input type="submit" value="Submit">
+    </form>
+    <form action ="/urls/user" style="padding-top:28px;">
+      <label for="backToYour">
+      <input type="submit" id="backToYour" value="Back to your MiniscURLs" /></label>
+    </form>
+    <form action="/" style="padding-top:14px;">
+      <label for="backToFull">
+      <input type="submit" id="backToFull" value="Back to full list" /></label>
+    </form>
+  </body>
+</html>
